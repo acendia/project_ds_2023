@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+    <title>See Users Page</title>
+</head>
+<style>
+    table {
+        color: #37356e;
+        margin: auto;
+    }
+    th, td {
+        color: #f7fafd;
+        background-color: #1d6185;
+        border-radius: 12px;
+    }
+    .center {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: auto;
+
+    }
+    .button {
+        background-color: #08d;
+        border-radius: 15px;
+        border: 0;
+        box-sizing: border-box;
+        color: #eee;
+        cursor: pointer;
+        font-size: 18px;
+        height: 30px;
+        text-align: center;
+        width: 100%;
+        float: left;
+
+
+    }
+
+    .button:active {
+        background-color: #06b;
+    }
+    .center2 {
+        float: left;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        display: flex;
+    }
+
+</style>
+<body>
+            <table class="center">
+                <thead>
+                <tr>
+                    <th>User Id</th>
+                    <th>FirstName</th>
+                    <th>LatName</th>
+                    <th>UserName</th>
+                    <th>Password</th>
+                    <th>Authority</th>
+                    <th>Email</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr th:each="user:${allusers}">
+                    <td th:text="${user.id}"></td>
+                    <td th:text="${user.firstName}"></td>
+                    <td th:text="${user.lastName}"></td>
+                    <td th:text="${user.username}"></td>
+                    <td th:text="${user.password}"></td>
+                    <td th:text="${user.authority}"></td>
+                    <td th:text="${user.email}"></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <form action="#" method="post" th:action="@{/admin/seeusers}"  th:object="${user}">
+                <div class="center2">
+
+                <input type="text" th:field="*{id}"  class="button" placeholder="Put the Id" name="uid" id="uid" required>
+                <input type="button" class="button" value="Alter User" id="alter" >
+                    <script type="text/javascript">
+                        document.getElementById("alter").onclick = function () {
+                            let userid = document.getElementById('uid').value;
+                            location.href = "/admin/seeusers/alter/"+userid;
+                        };
+                    </script>
+                    <input type="submit" class="button" value="Delete User" >
+                <input type="button" class="button" value="Go to Home Page" id="home" >
+                <script type="text/javascript">
+                    document.getElementById("home").onclick = function () {
+                        location.href = "/home";
+                    };
+                </script>
+                <input type="button" class="button" value="Logout" id="logout" >
+                <script type="text/javascript">
+                    document.getElementById("logout").onclick = function () {
+                        location.href = "/logout";
+                    };
+                </script>
+                </div>
+            </form>
+
+
+
+</body>
+</html>

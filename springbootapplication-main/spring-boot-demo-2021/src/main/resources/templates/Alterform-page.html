@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Alter User Form</title>
+</head>
+<style>
+    body {
+        align-items: center;
+        background-color: #163d5b;
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .form {
+        background-color: #15172b;
+        border-radius: 20px;
+        box-sizing: border-box;
+        height: 720px;
+        padding: 20px;
+        width: 520px;
+    }
+
+    .title {
+        color: #eee;
+        font-family: sans-serif;
+        font-size: 56px;
+        font-weight: 600;
+        margin-top: 30px;
+    }
+
+    .subtitle {
+        color: #eee;
+        font-family: sans-serif;
+        font-size: 20px;
+        font-weight: 600;
+        margin-top: 10px;
+    }
+
+    .input-container {
+        height: 50px;
+        position: relative;
+        width: 100%;
+    }
+
+    .ic1 {
+        margin-top: 40px;
+    }
+
+    .ic2 {
+        margin-top: 30px;
+    }
+
+    .input {
+        background-color: #303245;
+        border-radius: 12px;
+        border: 0;
+        box-sizing: border-box;
+        color: #eee;
+        font-size: 18px;
+        height: 100%;
+        outline: 0;
+        padding: 4px 20px 0;
+        width: 100%;
+    }
+
+    label {
+        color: #ffffff;
+        font-family: sans-serif;
+
+    }
+
+
+
+    .button {
+        background-color: #08d;
+        border-radius: 15px;
+        border: 0;
+        box-sizing: border-box;
+        color: #eee;
+        cursor: pointer;
+        font-size: 18px;
+        height: 30px;
+        margin-top: 38px;
+    // outline: 0;
+        text-align: center;
+        width: 32%;
+    }
+
+    .button:active {
+        background-color: #06b;
+    }
+
+
+</style>
+
+<body>
+<form action="#" method="post" th:action="@{/admin/seeusers/alter/{path}(path=${auser.getId()})}" th:object="${nuser}">
+    <div class="form">
+        <div class="title">Welcome</div>
+        <div class="subtitle">Alter an employee!</div>
+        <div class="input-container ic1">
+            <label for="firstName" ><b>First Name </b></label>
+            <input id="firstName"  th:field="*{firstName}" class="input" type="text" th:placeholder="${auser.firstName}"  required >
+        </div>
+
+        <div class="input-container ic2">
+            <label for="lastname" ><b>Last Name</b></label>
+            <input id="lastname" th:field="*{lastName}" class="input" type="text" th:placeholder="${auser.lastName}"  required />
+
+        </div>
+
+        <div class="input-container ic2">
+            <label for="username" ><b>Username</b></label>
+            <input id="username" th:field="*{username}" class="input" type="text" th:placeholder="${auser.username}" required/>
+
+        </div>
+
+        <div class="input-container ic2">
+            <label for="email"  ><b>Email</b></label>
+            <input id="email" th:field="*{email}" class="input" type="text"  th:placeholder="${auser.email}" required/>
+
+        </div>
+
+        <div class="input-container ic2">
+            <label for="afm" ><b>AFM</b></label>
+            <input id="afm" th:field="*{afm}" class="input" type="text" th:placeholder="${auser.afm}" required/>
+
+        </div>
+
+        <div class="input-container ic2">
+            <label for="role" ><b>Role</b></label>
+            <input id="role" th:field="*{authority}" class="input" type="text" th:placeholder="${auser.authority}" required/>
+
+        </div>
+
+<!--        <div class="input-container ic2">-->
+<!--            <label for="password" ><b>Password</b></label>-->
+<!--            <input id="password" th:field="*{password}" class="input" type="password" placeholder=" " required/>-->
+
+<!--        </div>-->
+
+        <input type="submit" class="button" value="Submit" >
+        <input type="reset" class="button" value="Reset" >
+        <input type="button" class="button" value="Logout" id="logout"  >
+        <script type="text/javascript">
+            document.getElementById("logout").onclick = function () {
+                location.href = "/logout";
+            };
+        </script>
+    </div>
+
+
+
+</form>
+
+</body>
+</html>

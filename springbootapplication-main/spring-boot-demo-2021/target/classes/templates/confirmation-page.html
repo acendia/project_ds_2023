@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+    <title>Choose Car Transfer Application Page</title>
+</head>
+<style>
+    table {
+        color: #37356e;
+    }
+    th, td {
+        color: #f7fafd;
+        background-color: #1d6185;
+        border-radius: 12px;
+    }
+    .center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .button {
+        background-color: #08d;
+        border-radius: 15px;
+        border: 0;
+        box-sizing: border-box;
+        color: #eee;
+        cursor: pointer;
+        font-size: 18px;
+        height: 30px;
+        text-align: center;
+        width: 100%;
+        float: left;
+
+    }
+
+    .button:active {
+        background-color: #06b;
+    }
+    .center2 {
+        float: left;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        display: flex;
+    }
+</style>
+
+<table class="center">
+    <thead>
+    <tr>
+        <th> Application Id </th>
+        <th> Buyer AFM Number </th>
+        <th> Department of Transportation address </th>
+        <th> Vehicle id </th>
+        <th> License plate number </th>
+        <th> Car maker </th>
+        <th> Car maker year </th>
+        <th> Application status </th>
+        <th> Username of application owner </th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="appli:${allapl}">
+        <td th:text="${appli.aid}"></td>
+        <td th:text="${appli.buyer_afm_number}"></td>
+        <td th:text="${appli.trans_dept_address}"></td>
+        <td th:text="${appli.vehicle_id}"></td>
+        <td th:text="${appli.license_plt_numb}"></td>
+        <td th:text="${appli.car_maker}"></td>
+        <td th:text="${appli.car_mk_yr}"></td>
+        <td th:if="${appli.applicationstatus == 1}">SUCCESSFUL</td>
+        <td th:if="${appli.applicationstatus != 1}">PENDING</td>
+        <td th:text="${appli.user.getUsername()}"></td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+
+<form action="#" method="post" th:action="@{/buyer/confirmation}" th:object="${appl}">
+
+
+
+    <div class="center2">
+
+        <input type="text" th:field="*{aid}"  class="button" placeholder="Put the Id" name="aid" id="aid" required>
+        <input type="submit" class="button"  value="Check this Application">
+        <input type="button" class="button" value="Go to Home Page" id="home" >
+        <script type="text/javascript">
+            document.getElementById("home").onclick = function () {
+                location.href = "/home";
+            };
+        </script>
+        <input type="button" class="button" value="Logout" id="logout" >
+        <script type="text/javascript">
+            document.getElementById("logout").onclick = function () {
+                location.href = "/logout";
+            };
+        </script>
+    </div>
+
+</form>
+
+
+</body>
+</html>

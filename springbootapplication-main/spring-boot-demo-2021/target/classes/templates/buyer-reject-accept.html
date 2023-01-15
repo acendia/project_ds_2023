@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check Application</title>
+</head>
+<style>
+    table {
+        color: #37356e;
+        margin: auto;
+    }
+    th, td {
+        color: #f7fafd;
+        background-color: #1d6185;
+        border-radius: 12px;
+    }
+    .center {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: auto;
+
+    }
+    .button {
+        background-color: #08d;
+        border-radius: 15px;
+        border: 0;
+        box-sizing: border-box;
+        color: #eee;
+        cursor: pointer;
+        font-size: 18px;
+        height: 30px;
+        text-align: center;
+        width: 100%;
+        float: left;
+
+
+    }
+
+    .button:active {
+        background-color: #06b;
+    }
+    .center2 {
+        float: left;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        display: flex;
+    }
+
+</style>
+<body>
+<table class="center">
+    <thead>
+    <tr>
+        <th> Application Id </th>
+        <th> Buyer AFM Number </th>
+        <th> Department of Transportation address </th>
+        <th> Vehicle id </th>
+        <th> License plate number </th>
+        <th> Car maker </th>
+        <th> Car maker year </th>
+        <th> Application status </th>
+        <th> Username of application owner </th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="ap:${applica}">
+        <td th:text="${applica.aid}"></td>
+        <td th:text="${applica.buyer_afm_number}"></td>
+        <td th:text="${applica.trans_dept_address}"></td>
+        <td th:text="${applica.vehicle_id}"></td>
+        <td th:text="${applica.license_plt_numb}"></td>
+        <td th:text="${applica.car_maker}"></td>
+        <td th:text="${applica.car_mk_yr}"></td>
+        <td th:if="${applica.applicationstatus == 1}">SUCCESSFUL</td>
+        <td th:if="${applica.applicationstatus != 1}">PENDING</td>
+        <td th:text="${applica.user.getUsername()}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="center2">
+    <a href="/buyer/confirmation/accept"><input type="button"  class="button" value="Confirm" id="acceptbtn" ></a>
+    <a href="/buyer/confirmation/deny"><input type="button"   class="button"   value="Deny"   id="denybtn" ></a>
+    <input type="button" class="button" value="Logout" id="logout"  >
+    <script type="text/javascript">
+        document.getElementById("logout").onclick = function () {
+            location.href = "/logout";
+        };
+    </script>
+</div>
+</body>
+</html>

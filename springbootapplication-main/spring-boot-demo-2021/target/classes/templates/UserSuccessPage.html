@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
+</head>
+<style>
+  body {
+    text-align: center;
+    padding: 40px 0;
+    background: #EBF0F5;
+  }
+  h1 {
+    color: #88B04B;
+    font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+    font-weight: 900;
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+  p {
+    color: #404F5E;
+    font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+    font-size:20px;
+    margin: 0;
+  }
+  i {
+    color: #9ABC66;
+    font-size: 100px;
+    line-height: 200px;
+    margin-left:-15px;
+  }
+  .card {
+    background: white;
+    padding: 60px;
+    border-radius: 4px;
+    box-shadow: 0 2px 3px #C8D0D8;
+    display: inline-block;
+    margin: 0 auto;
+    width: 550px;
+
+  }
+  .button {
+    background-color: #72b477;
+    border-radius: 22px;
+    border: 0;
+    box-sizing: border-box;
+    color: #ecf6f0;
+    cursor: pointer;
+    font-size: 18px;
+    height: 50px;
+    margin-top: 40px;
+    text-align: center;
+    width: 35%;
+  }
+  .button:active {
+    background-color: #c3eede;
+  }
+  :root {
+    --borderWidth: 25px;
+    --height: 120px;
+    --width: 34px;
+    --borderColor: #78b13f;
+  }
+
+  body {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .check {
+    display: inline-block;
+    transform: rotate(45deg);
+    height: var(--height);
+    width: var(--width);
+    border-bottom: var(--borderWidth) solid var(--borderColor);
+    border-right: var(--borderWidth) solid var(--borderColor);
+  }
+</style>
+<body>
+<div class="card">
+  <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+    <div class="check"></div>
+  </div>
+  <h1>Success!</h1>
+  <p>We received your request.</p>
+  <input type="button" class="button" value="Go to Home Page" id="home" >
+  <script type="text/javascript">
+    document.getElementById("home").onclick = function () {
+      location.href = "/home";
+    };
+  </script>
+
+  <input type="button" class="button" value="Logout" id="out" >
+  <script type="text/javascript">
+    document.getElementById("out").onclick = function () {
+      location.href = "/logout";
+    };
+  </script>
+</div>
+</body>
+</html>

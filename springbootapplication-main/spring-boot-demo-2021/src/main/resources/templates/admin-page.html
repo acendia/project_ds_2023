@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Page</title>
+
+</head>
+<style>
+    body {
+        align-items: center;
+        background-color: #2a165b;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+    }
+    .title {
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+        color: #eee;
+        font-family: sans-serif;
+        font-size: 56px;
+    }
+
+    .subtitle {
+        margin-top: 19px;
+        padding-top: 0px;
+        color: #eee;
+        font-family: sans-serif;
+        font-size: 22px;
+    }
+
+    .input:focus ~
+    .input:not(:placeholder-shown) ~  {
+        transform: translateY(8px);
+    }
+    .input:focus ~
+    .input:not(:placeholder-shown) ~  {
+        transform: translateY(-30px) translateX(10px) scale(0.75);
+    }
+    .input:not(:placeholder-shown) ~  {
+        color: #808097;
+    }
+    .input:focus ~  {
+        color: #529ad7;
+    }
+    .button {
+        background-color: #08d;
+        border-radius: 22px;
+        border: 0;
+        box-sizing: border-box;
+        color: #eee;
+        cursor: pointer;
+        font-size: 18px;
+        height: 50px;
+        margin-top: 240px;
+    // outline: 0;
+        text-align: center;
+        width: 10%;
+    }
+    .button:active {
+        background-color: #06b;
+    }
+</style>
+<body>
+<div class="title">Administrator Zone</div>
+<div class="subtitle">Welcome to Admin Panel,what would you like to do?</div>
+<input type="button" class="button" value="Add User" id="addbtn" >
+
+
+<script type="text/javascript">
+    document.getElementById("addbtn").onclick = function () {
+        location.href = "/admin/add";
+    };
+</script>
+<input type="button" class="button" value="Edit Users" id="editbtn" >
+<script type="text/javascript">
+document.getElementById("editbtn").onclick = function () {
+location.href = "/admin/seeusers";
+};
+</script>
+
+<input type="button" class="button" value="Logout" id="out" >
+<script type="text/javascript">
+    document.getElementById("out").onclick = function () {
+        location.href = "/logout";
+    };
+</script>
+</body>
+</html>

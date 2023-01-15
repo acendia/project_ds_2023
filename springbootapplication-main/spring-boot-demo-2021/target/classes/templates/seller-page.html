@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Seller Page</title>
+
+</head>
+<style>
+    body {
+        align-items: center;
+        background-color: #2a165b;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+    }
+    .title {
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+        color: #eee;
+        font-family: sans-serif;
+        font-size: 56px;
+    }
+
+    .subtitle {
+        margin-top: 19px;
+        padding-top: 0px;
+        color: #eee;
+        font-family: sans-serif;
+        font-size: 22px;
+    }
+
+    .input:focus, ~
+    .input:not(:placeholder-shown) ~  {
+        transform: translateY(8px);
+    }
+    .input:focus, ~
+    .input:not(:placeholder-shown) ~  {
+        transform: translateY(-30px) translateX(10px) scale(0.75);
+    }
+    .input:not(:placeholder-shown) ~  {
+        color: #808097;
+    }
+    .input:focus ~  {
+        color: #529ad7;
+    }
+    .button {
+        background-color: #08d;
+        border-radius: 22px;
+        border: 0;
+        box-sizing: border-box;
+        color: #eee;
+        cursor: pointer;
+        font-size: 18px;
+        height: 50px;
+        margin-top: 240px;
+    // outline: 0;
+        text-align: center;
+        width: 16%;
+    }
+    .button:active {
+        background-color: #06b;
+    }
+</style>
+<style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+    * {box-sizing: border-box;}
+
+
+    /* Float cancel and delete buttons and add an equal width */
+    .cancelbtn, .deletebtn {
+        background-color: #08d;
+        border-radius: 22px;
+        border: 0;
+        box-sizing: border-box;
+        color: #eee;
+        cursor: pointer;
+        font-size: 18px;
+        height: 60px;
+        margin-top: 70px;
+        text-align: center;
+        width: 30%;
+    }
+
+    /* Add a color to the cancel button */
+    .cancelbtn {
+        background-color: #ccc;
+        color: black;
+    }
+
+    /* Add a color to the delete button */
+    .deletebtn {
+        background-color: #f44336;
+    }
+
+    /* Add padding and center-align text to the container */
+    .container {
+        padding: 16px;
+        text-align: center;
+        background-color: #54285e;
+    }
+
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: #301734;
+        padding-top: 50px;
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #32063b;
+        margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        width: 50%; /* Could be more or less, depending on screen size */
+        height:50%;
+    }
+
+    /* Style the horizontal ruler */
+    hr {
+        border: 1px solid #f1f1f1;
+        margin-bottom: 25px;
+    }
+
+    /* The Modal Close Button (x) */
+    .close {
+        position: absolute;
+        right: 35px;
+        top: 15px;
+        font-size: 40px;
+        font-weight: bold;
+        color: #f1f1f1;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #f44336;
+        cursor: pointer;
+    }
+
+    /* Clear floats */
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    /* Change styles for cancel button and delete button on extra small screens */
+    @media screen and (max-width: 300px) {
+        .cancelbtn, .deletebtn {
+            width: 100%;
+        }
+    }
+</style>
+<body>
+<div class="title">Seller Zone</div>
+<div class="subtitle">Welcome to Seller Panel,what would you like to do?</div>
+<input type="button" class="button" value="Create an Application" id="create" >
+
+<script type="text/javascript">
+    document.getElementById("create").onclick = function () {
+        location.href = "/seller/application";
+    };
+</script>
+
+<input type="button" class="button" value="Show Applications" id="show" >
+
+<script type="text/javascript">
+    document.getElementById("show").onclick = function () {
+        location.href = "/seller/myapplications";
+    };
+</script>
+
+<button onclick="document.getElementById('id01').style.display='block'" class="button" >Delete Your Account</button>
+
+<div id="id01" class="modal">
+    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+    <form class="modal-content" action="get">
+        <div class="container">
+            <div class="title">Delete Account </div>
+            <div class="subtitle">Are you sure you want to delete your account? </div>
+
+            <div class="clearfix">
+                <button type="button"  onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                <button type="button" id="delete" onclick="document.getElementById('id01').style.display='none'" class="deletebtn">Delete</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+<script>
+    document.getElementById("delete").onclick = function () {
+        location.href = "/deleteAccount";
+    };
+</script>
+
+<input type="button" class="button" value="Logout" id="out" >
+<script type="text/javascript">
+    document.getElementById("out").onclick = function () {
+        location.href = "/logout";
+    };
+</script>
+
+
+</body>
+</html>
