@@ -39,7 +39,8 @@ Buyer user:
 * Check user's available applications (access | deny)
 * Logout
 
-Installation git clone: 
+Installation git clone:
+git clone https://github.com/vakogest/project_ds_2023.git
 
 ---
 Database Instructions:
